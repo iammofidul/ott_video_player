@@ -13,7 +13,7 @@ class OttVideoPlayer extends StatefulWidget {
 
 class OttVideoPlayerState extends State<OttVideoPlayer> {
   late VideoPlayerController _videoPlayerController;
-  late ChewieController _chewieController;
+   ChewieController? _chewieController;
   @override
   void initState() {
     super.initState();
@@ -29,17 +29,20 @@ class OttVideoPlayerState extends State<OttVideoPlayer> {
       looping: true,
       // Other customization options can be added here
     );
+    setState(() {
+      
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return _chewieController!=null?Chewie(controller: _chewieController):SizedBox.shrink();
+    return _chewieController!=null?Chewie(controller: _chewieController!):SizedBox.shrink();
   }
 
   @override
   void dispose() {
     _videoPlayerController.dispose();
-    _chewieController.dispose();
+    _chewieController?.dispose();
     super.dispose();
   }
 }
