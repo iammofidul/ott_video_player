@@ -11,12 +11,9 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
+The OTT Video Player Plugin for Flutter extends the functionality of the popular video_player plugin, providing a seamless and feature-rich solution for integrating Over-The-Top (OTT) video playback into your Flutter applications. Whether you're building a streaming app, video-on-demand service, or any other media-rich application, this plugin simplifies the process of incorporating OTT video content.
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
@@ -34,6 +31,5 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+You can contribute to package here
+https://github.com/iammofidul/ott_video_player
