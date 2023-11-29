@@ -1,44 +1,45 @@
 library ott_video_player;
 
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class OttVideoPlayer extends StatefulWidget {
   final String videoUrl;
-  final bool showCustomControls; // Example of an extra feature
-  const OttVideoPlayer({
-    required this.videoUrl,
-    this.showCustomControls = true,
-    Key? key,
-  }) : super(key: key);
-
+  const OttVideoPlayer({required this.videoUrl, Key? key}) : super(key: key);
   @override
   OttVideoPlayerState createState() => OttVideoPlayerState();
 }
 
 class OttVideoPlayerState extends State<OttVideoPlayer> {
-  late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
-
+  late VideoPlayerController _videoPlayerController;
+  late ChewieController _chewieController;
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
-    _initializeVideoPlayerFuture = _controller.initialize();
-    _controller.play();
-    _controller.setLooping(true);
+     init();
+  }
+  void init()async{
+    _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
+    await _videoPlayerController.initialize();
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      aspectRatio: _videoPlayerController.value.aspectRatio, // Adjust this according to your video aspect ratio
+      autoPlay: true,
+      looping: true,
+      // Other customization options can be added here
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-   return AspectRatio(
-      aspectRatio: _controller.value.aspectRatio,
-      child: VideoPlayer(_controller,),
-    );
+    return _chewieController!=null?Chewie(controller: _chewieController):SizedBox.shrink();
   }
+
   @override
   void dispose() {
-    _controller.dispose();
+    _videoPlayerController.dispose();
+    _chewieController.dispose();
     super.dispose();
   }
 }
