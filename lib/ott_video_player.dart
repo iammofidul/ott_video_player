@@ -30,7 +30,7 @@ class OttVideoPlayerState extends State<OttVideoPlayer> {
       // Other customization options can be added here
     );
     setState(() {
-      
+
     });
   }
 

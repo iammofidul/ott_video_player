@@ -29,7 +29,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: OttVideoPlayer(videoUrl: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8"));
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    double aspectRatio = MediaQuery.of(context).size.aspectRatio;
+    return Scaffold(
+      appBar:AppBar(
+        leading: Container(),
+        titleSpacing: 0,
+        toolbarHeight:  width * 0.57,
+        leadingWidth: 0,
+        title: AspectRatio(
+          aspectRatio: 16/9,
+          child: OttVideoPlayer(videoUrl: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8"),
+        ),
+      ),
+        body:Container(child: Text("jch"),) );
 
   }
 }
