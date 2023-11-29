@@ -1,7 +1,7 @@
 name: ott_video_player
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/iammofidul/ott_video_player
 
 environment:
   sdk: '>=3.1.5 <4.0.0'
