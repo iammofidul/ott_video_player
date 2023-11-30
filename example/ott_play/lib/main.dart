@@ -40,10 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
         leadingWidth: 0,
         title: AspectRatio(
           aspectRatio: 16/9,
-          child: OttVideoPlayer(videoUrl: "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8"),
+          child: OttVideoPlayer(videoUrl: "https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8"),
         ),
       ),
         body:Container(child: Text("jch"),) );
 
   }
 }
+//http://playertest.longtailvideo.com/adaptive/wowzaid3/playlist.m3u8
+//https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8
+//https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8

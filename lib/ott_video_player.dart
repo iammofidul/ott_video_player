@@ -23,10 +23,18 @@ class OttVideoPlayerState extends State<OttVideoPlayer> {
     _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
     await _videoPlayerController.initialize();
     _chewieController = ChewieController(
+      overlay: const SizedBox.shrink(),
       videoPlayerController: _videoPlayerController,
       aspectRatio: _videoPlayerController.value.aspectRatio, // Adjust this according to your video aspect ratio
       autoPlay: true,
       looping: true,
+      draggableProgressBar: true,
+      zoomAndPan: true,
+      controlsSafeAreaMinimum: EdgeInsets.zero,
+      materialProgressColors: ChewieProgressColors(
+        playedColor: Color(0xffB6291F),
+        backgroundColor: Colors.white10
+      )
       // Other customization options can be added here
     );
     setState(() {
